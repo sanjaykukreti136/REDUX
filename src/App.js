@@ -1,10 +1,17 @@
-
+import { useSelector, useDispatch } from 'react-redux';
+import { countIncrement } from './redux/action';
 let App = () => {
+
+  let state = useSelector((state) => state);
+  let dispatch = useDispatch();
+
   return (
     <>
 
-      <button >+</button>
-      <p>0</p>
+      <button onClick={() => {
+        dispatch(countIncrement());
+      }} >+</button>
+      <p>{state}</p>
       <button>-</button>
     </>
   )
